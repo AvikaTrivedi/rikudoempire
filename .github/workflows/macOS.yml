@@ -31,7 +31,7 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@${{ secrets.CREDS }} 
+           git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@${{ secrets.CREDS }} envir
        - name: Running Ultroid
          timeout-minutes: 350
          continue-on-error: true
@@ -43,7 +43,7 @@ jobs:
            brew install httpx
            pip3 install --upgrade pip setuptools
            git clone https://github.com/TeamUltroid/Ultroid
-           cp environ/.env Ultroid/.env
+           cp envir/.env Ultroid/.env
            cd Ultroid
            pip3 install --no-cache-dir --ignore-installed --force-reinstall --no-warn-script-location --user -r req* 
            pip3 install --no-cache-dir --ignore-installed --force-reinstall --no-warn-script-location --user -r res*/sta*/opt*.txt 
