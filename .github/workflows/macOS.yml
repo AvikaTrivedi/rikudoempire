@@ -31,7 +31,7 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@${{ secrets.CREDS }} envir
+           git clone https://${{secrets.GIT_TOKEN}}@github.com/${{ secrets.CREDS }} envir
        - name: Running Ultroid
          timeout-minutes: 350
          continue-on-error: true
