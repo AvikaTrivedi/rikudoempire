@@ -20,18 +20,18 @@ jobs:
          name: "Cancel duplicate workflow runs"
          with:
             all_but_latest: true
-            access_token: ${{ github.token }}
+            access_token: ${{github.token}}
        - name: initialization
          continue-on-error: true
          run: |
-           git config --global user.name ${{ secrets.GitHubName }}
-           git config --global user.email ${{ secrets.GitHubMail }}
+           git config --global user.name ${{secrets.GitHubName}}
+           git config --global user.email ${{secrets.GitHubMail}}
            git config --global credential.helper store
-           echo "https://${{ secrets.GitHubName }}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
+           echo "https://${{secrets.GitHubName}}:${{secrets.GH_TOKEN}}@github.com" > ~/.git-credentials
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://${{secrets.GIT_TOKEN}}@github.com/${{ secrets.CREDS }} envir
+           git clone https://${{secrets.GitHubName}}:${{secrets.GH_TOKEN}}@${{secrets.CREDS}} envir
        - name: Running Ultroid
          timeout-minutes: 350
          continue-on-error: true
