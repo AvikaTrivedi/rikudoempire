@@ -50,7 +50,7 @@ jobs:
            bash startup
           
        - name: Loop workflow
-         continue-on-error: false
+         continue-on-error: true
          run: |
               git clone https://github.com/${GITHUB_REPOSITORY} loop
               cd loop || exit 1
